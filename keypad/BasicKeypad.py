@@ -32,6 +32,6 @@ while True:
     # Remove new lines
     data_packet = data_packet.strip("\r\n")
 
-    pyautogui.hotkey("ctrl","escape")
+    pyautogui.hotkey(data_packet)
 
 input("this is just so if you package the code to an exe it wont close :)")
