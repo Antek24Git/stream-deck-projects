@@ -184,8 +184,7 @@ def ifs():
                 + custom_list3.__getitem__(15)
             )
 
-
-
+print("if this is your first time running this code please the the readme.md for useful information")
 # Assign port variable to port used by Arduino board
 com_num = input("hi, please select your com port number(numbers 1-5)\n")
 port = "com" + com_num
