@@ -7,7 +7,6 @@ import pyautogui
 com_num = input("hi, please select your com port number(numbers 1-5)\a \n")
 port = "com" + com_num
 
-
 # Connect to the Arduino using the serial library
 
 arduino_data = serial.Serial(port, 9600)
@@ -20,10 +19,11 @@ time.sleep(1)
 while True:
 
     # Wait while there is no data
+    # noinspection PyUnresolvedReferences
     while arduino_data.inWaiting() == 0:
         pass
 
-    # Read data when avaliable
+    # Read data when available
     data_packet = arduino_data.readline()
 
     # Convert from byte to string

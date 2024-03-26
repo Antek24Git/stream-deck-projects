@@ -1,5 +1,5 @@
 import serial
-import time
+from time import sleep as sl
 import pyautogui
 
 custom_list = []
@@ -7,7 +7,7 @@ custom_list2 = []
 custom_list3 = []
 
 print(
-    "if this is your first time running this code please the the README.md for useful information"
+    "if this is your first time running this code please read the README.md for useful information"
 )
 # Assign port variable to port used by Arduino board
 com_num = input("Please select your com port number(numbers 1-5)\n")
@@ -30,19 +30,18 @@ choice_binds = input(
 )
 if choice_binds == "list":
     print(
-        """\ncontrol = ctrl
+        """\n note: when setting up the keypad dont just press the control button, you actually have to type the name of the button as indicated in the list.
+        control = ctrl
     escape = escape
     shift = shift 
     alt = alt
     f1 = f1(this applies to all f keys)
-    del = delete
+    delete = del 
     type direction for arrow keys, for example 'up' for up arrow
         """
     )
 elif choice_binds == "continue":
     print()
-
-time.sleep(1)
 
 for i in range(16):
     i += 1
@@ -50,13 +49,16 @@ for i in range(16):
     custom_list.append(input(f"what would you like button {i} to do? "))
     print(f"\nbutton {i} is now bound to {custom_list.__getitem__(int(i - 1))}")
     int(i)
+
 choice_2 = input("would you like to add a second keybind? y/n :".lower())
 
 if choice_2 == "y":
     for i in range(16):
         i += 1
         str(i)
-        custom_list2.append(input(f"what would you like button {i} to have as a second keybind? "))
+        custom_list2.append(
+            input(f"what would you like button {i} to have as a second keybind? ")
+        )
         print(f"button {i} is now bound to {custom_list2.__getitem__(int(i - 1))}")
         int(i)
 choice_3 = input("would you like to add a second keybind? y/n :".lower())
@@ -65,156 +67,226 @@ if choice_3 == "y":
     for i in range(16):
         i += 1
         str(i)
-        custom_list3.append(input(f"what would you like button {i} to have as a second keybind? "))
+        custom_list3.append(
+            input(f"what would you like button {i} to have as a second keybind? ")
+        )
         print(f"button {i} is now bound to {custom_list3.__getitem__(int(i - 1))}")
+
+print("\a The keypad is now configured.")
+
+
 def ifs_1_value():
     if data_packet == "1":
-        pyautogui.hotkey(custom_list.__getitem__(0))
+        pyautogui.press(custom_list.__getitem__(0))
 
     if data_packet == "2":
-        pyautogui.hotkey(custom_list.__getitem__(1))
+        pyautogui.press(custom_list.__getitem__(1))
 
     if data_packet == "3":
-        pyautogui.hotkey(custom_list.__getitem__(2))
+        pyautogui.press(custom_list.__getitem__(2))
 
     if data_packet == "A":
-        pyautogui.hotkey(custom_list.__getitem__(3))
+        pyautogui.press(custom_list.__getitem__(3))
 
     if data_packet == "4":
-        pyautogui.hotkey(custom_list.__getitem__(4))
+        pyautogui.press(custom_list.__getitem__(4))
 
     if data_packet == "5":
-        pyautogui.hotkey(custom_list.__getitem__(5))
+        pyautogui.press(custom_list.__getitem__(5))
 
     if data_packet == "6":
-        pyautogui.hotkey(custom_list.__getitem__(6))
+        pyautogui.press(custom_list.__getitem__(6))
 
     if data_packet == "B":
-        pyautogui.hotkey(custom_list.__getitem__(7))
+        pyautogui.press(custom_list.__getitem__(7))
 
     if data_packet == "7":
-        pyautogui.hotkey(custom_list.__getitem__(8))
+        pyautogui.press(custom_list.__getitem__(8))
 
     if data_packet == "8":
-        pyautogui.hotkey(custom_list.__getitem__(9))
+        pyautogui.press(custom_list.__getitem__(9))
 
     if data_packet == "9":
-        pyautogui.hotkey(custom_list.__getitem__(10))
+        pyautogui.press(custom_list.__getitem__(10))
 
     if data_packet == "C":
-        pyautogui.hotkey(custom_list.__getitem__(11))
+        pyautogui.press(custom_list.__getitem__(11))
 
     if data_packet == "*":
-        pyautogui.hotkey(custom_list.__getitem__(12))
+        pyautogui.press(custom_list.__getitem__(12))
 
     if data_packet == "0":
-        pyautogui.hotkey(custom_list.__getitem__(13))
+        pyautogui.press(custom_list.__getitem__(13))
 
     if data_packet == "#":
-        pyautogui.hotkey(custom_list.__getitem__(14))
+        pyautogui.press(custom_list.__getitem__(14))
 
     if data_packet == "D":
-        pyautogui.hotkey(custom_list.__getitem__(15))
+        pyautogui.press(custom_list.__getitem__(15))
+
 
 def ifs_2_value():
     if data_packet == "1":
-        pyautogui.hotkey(custom_list.__getitem__(0),custom_list2.__getitem__(0))
-
+        pyautogui.press(custom_list.__getitem__(0), custom_list2.__getitem__(0))
 
     if data_packet == "2":
-        pyautogui.hotkey(custom_list.__getitem__(1),custom_list2.__getitem__(1))
+        pyautogui.press(custom_list.__getitem__(1), custom_list2.__getitem__(1))
 
     if data_packet == "3":
-        pyautogui.hotkey(custom_list.__getitem__(2),custom_list2.__getitem__(2))
+        pyautogui.press(custom_list.__getitem__(2), custom_list2.__getitem__(2))
 
     if data_packet == "A":
-        pyautogui.hotkey(custom_list.__getitem__(3),custom_list2.__getitem__(3))
+        pyautogui.press(custom_list.__getitem__(3), custom_list2.__getitem__(3))
 
     if data_packet == "4":
-        pyautogui.hotkey(custom_list.__getitem__(4),custom_list2.__getitem__(4))
+        pyautogui.press(custom_list.__getitem__(4), custom_list2.__getitem__(4))
 
     if data_packet == "5":
-        pyautogui.hotkey(custom_list.__getitem__(5),custom_list2.__getitem__(5))
+        pyautogui.press(custom_list.__getitem__(5), custom_list2.__getitem__(5))
 
     if data_packet == "6":
-        pyautogui.hotkey(custom_list.__getitem__(6),custom_list2.__getitem__(6))
+        pyautogui.press(custom_list.__getitem__(6), custom_list2.__getitem__(6))
 
     if data_packet == "B":
-        pyautogui.hotkey(custom_list.__getitem__(7),custom_list2.__getitem__(7))
+        pyautogui.press(custom_list.__getitem__(7), custom_list2.__getitem__(7))
 
     if data_packet == "7":
-        pyautogui.hotkey(custom_list.__getitem__(8),custom_list2.__getitem__(8))
+        pyautogui.press(custom_list.__getitem__(8), custom_list2.__getitem__(8))
 
     if data_packet == "8":
-        pyautogui.hotkey(custom_list.__getitem__(9),custom_list2.__getitem__(9))
+        pyautogui.press(custom_list.__getitem__(9), custom_list2.__getitem__(9))
 
     if data_packet == "9":
-        pyautogui.hotkey(custom_list.__getitem__(10),custom_list2.__getitem__(10))
+        pyautogui.press(custom_list.__getitem__(10), custom_list2.__getitem__(10))
 
     if data_packet == "C":
-        pyautogui.hotkey(custom_list.__getitem__(11),custom_list2.__getitem__(11))
+        pyautogui.press(custom_list.__getitem__(11), custom_list2.__getitem__(11))
 
     if data_packet == "*":
-        pyautogui.hotkey(custom_list.__getitem__(12),custom_list2.__getitem__(12))
+        pyautogui.press(custom_list.__getitem__(12), custom_list2.__getitem__(12))
 
     if data_packet == "0":
-        pyautogui.hotkey(custom_list.__getitem__(13),custom_list2.__getitem__(13))
+        pyautogui.press(custom_list.__getitem__(13), custom_list2.__getitem__(13))
 
     if data_packet == "#":
-        pyautogui.hotkey(custom_list.__getitem__(14),custom_list2.__getitem__(14))
+        pyautogui.press(custom_list.__getitem__(14), custom_list2.__getitem__(14))
 
     if data_packet == "D":
-        pyautogui.hotkey(custom_list.__getitem__(15),custom_list2.__getitem__(15))
+        pyautogui.press(custom_list.__getitem__(15), custom_list2.__getitem__(15))
 
 
 def ifs_3_value():
     if data_packet == "1":
-        pyautogui.hotkey(custom_list.__getitem__(0), custom_list2.__getitem__(0), custom_list3.__getitem__(0))
+        pyautogui.press(
+            custom_list.__getitem__(0),
+            custom_list2.__getitem__(0),
+            custom_list3.__getitem__(0),
+        )
 
     if data_packet == "2":
-        pyautogui.hotkey(custom_list.__getitem__(1), custom_list2.__getitem__(1), custom_list3.__getitem__(1))
+        pyautogui.press(
+            custom_list.__getitem__(1),
+            custom_list2.__getitem__(1),
+            custom_list3.__getitem__(1),
+        )
 
     if data_packet == "3":
-        pyautogui.hotkey(custom_list.__getitem__(2), custom_list2.__getitem__(2), custom_list3.__getitem__(2))
+        pyautogui.press(
+            custom_list.__getitem__(2),
+            custom_list2.__getitem__(2),
+            custom_list3.__getitem__(2),
+        )
 
     if data_packet == "A":
-        pyautogui.hotkey(custom_list.__getitem__(3), custom_list2.__getitem__(3), custom_list3.__getitem__(3))
+        pyautogui.press(
+            custom_list.__getitem__(3),
+            custom_list2.__getitem__(3),
+            custom_list3.__getitem__(3),
+        )
 
     if data_packet == "4":
-        pyautogui.hotkey(custom_list.__getitem__(4), custom_list2.__getitem__(4), custom_list3.__getitem__(4))
+        pyautogui.press(
+            custom_list.__getitem__(4),
+            custom_list2.__getitem__(4),
+            custom_list3.__getitem__(4),
+        )
 
     if data_packet == "5":
-        pyautogui.hotkey(custom_list.__getitem__(5), custom_list2.__getitem__(5), custom_list3.__getitem__(5))
+        pyautogui.press(
+            custom_list.__getitem__(5),
+            custom_list2.__getitem__(5),
+            custom_list3.__getitem__(5),
+        )
 
     if data_packet == "6":
-        pyautogui.hotkey(custom_list.__getitem__(6), custom_list2.__getitem__(6), custom_list3.__getitem__(6))
+        pyautogui.press(
+            custom_list.__getitem__(6),
+            custom_list2.__getitem__(6),
+            custom_list3.__getitem__(6),
+        )
 
     if data_packet == "B":
-        pyautogui.hotkey(custom_list.__getitem__(7), custom_list2.__getitem__(7), custom_list3.__getitem__(7))
+        pyautogui.press(
+            custom_list.__getitem__(7),
+            custom_list2.__getitem__(7),
+            custom_list3.__getitem__(7),
+        )
 
     if data_packet == "7":
-        pyautogui.hotkey(custom_list.__getitem__(8), custom_list2.__getitem__(8), custom_list3.__getitem__(8))
+        pyautogui.press(
+            custom_list.__getitem__(8),
+            custom_list2.__getitem__(8),
+            custom_list3.__getitem__(8),
+        )
 
     if data_packet == "8":
-        pyautogui.hotkey(custom_list.__getitem__(9), custom_list2.__getitem__(9), custom_list3.__getitem__(9))
+        pyautogui.press(
+            custom_list.__getitem__(9),
+            custom_list2.__getitem__(9),
+            custom_list3.__getitem__(9),
+        )
 
     if data_packet == "9":
-        pyautogui.hotkey(custom_list.__getitem__(10), custom_list2.__getitem__(10), custom_list3.__getitem__(10))
+        pyautogui.press(
+            custom_list.__getitem__(10),
+            custom_list2.__getitem__(10),
+            custom_list3.__getitem__(10),
+        )
 
     if data_packet == "C":
-        pyautogui.hotkey(custom_list.__getitem__(11), custom_list2.__getitem__(11), custom_list3.__getitem__(11))
+        pyautogui.press(
+            custom_list.__getitem__(11),
+            custom_list2.__getitem__(11),
+            custom_list3.__getitem__(11),
+        )
 
     if data_packet == "*":
-        pyautogui.hotkey(custom_list.__getitem__(12), custom_list2.__getitem__(12), custom_list3.__getitem__(12))
+        pyautogui.press(
+            custom_list.__getitem__(12),
+            custom_list2.__getitem__(12),
+            custom_list3.__getitem__(12),
+        )
 
     if data_packet == "0":
-        pyautogui.hotkey(custom_list.__getitem__(13), custom_list2.__getitem__(13), custom_list3.__getitem__(13))
+        pyautogui.press(
+            custom_list.__getitem__(13),
+            custom_list2.__getitem__(13),
+            custom_list3.__getitem__(13),
+        )
 
     if data_packet == "#":
-        pyautogui.hotkey(custom_list.__getitem__(14), custom_list2.__getitem__(14), custom_list3.__getitem__(14))
+        pyautogui.press(
+            custom_list.__getitem__(14),
+            custom_list2.__getitem__(14),
+            custom_list3.__getitem__(14),
+        )
 
     if data_packet == "D":
-        pyautogui.hotkey(custom_list.__getitem__(15), custom_list2.__getitem__(15), custom_list3.__getitem__(15))
+        pyautogui.press(
+            custom_list.__getitem__(15),
+            custom_list2.__getitem__(15),
+            custom_list3.__getitem__(15),
+        )
 
 
 while True:
@@ -239,7 +311,6 @@ while True:
         ifs_3_value()
     else:
         ifs_1_value()
+    sl(0.1)
 
-
-# noinspection PyUnreachableCode
 input("this is just so if you package the code to an exe it wont close :)")
