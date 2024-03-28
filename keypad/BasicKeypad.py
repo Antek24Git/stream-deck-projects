@@ -1,4 +1,3 @@
-# Include Libraries
 import serial
 import time
 import pyautogui

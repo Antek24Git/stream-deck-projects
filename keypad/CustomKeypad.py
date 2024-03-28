@@ -61,14 +61,14 @@ if choice_2 == "y":
         )
         print(f"button {i} is now bound to {custom_list2.__getitem__(int(i - 1))}")
         int(i)
-choice_3 = input("would you like to add a second keybind? y/n :".lower())
+choice_3 = input("would you like to add a third keybind? y/n :".lower())
 
 if choice_3 == "y":
     for i in range(16):
         i += 1
         str(i)
         custom_list3.append(
-            input(f"what would you like button {i} to have as a second keybind? ")
+            input(f"what would you like button {i} to have as a third keybind? ")
         )
         print(f"button {i} is now bound to {custom_list3.__getitem__(int(i - 1))}")
 
